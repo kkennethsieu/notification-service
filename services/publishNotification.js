@@ -6,7 +6,7 @@ export default async function publishNotification({
   entityId,
   type,
 }) {
-  const connection = await amqplib.connect("amqp://localhost:5672");
+  const connection = await amqplib.connect(process.env.RABBITMQ_URL);
   const channel = await connection.createChannel();
   const queue = "notification";
 

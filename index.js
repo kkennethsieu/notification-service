@@ -2,6 +2,9 @@ import express from "express";
 import notificationRoutes from "./routes/notificationRoutes.js";
 import cors from "cors";
 import { consumeNotification } from "./services/consumer.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
@@ -27,7 +30,7 @@ app.get("/", (req, res) => {
 
 app.use("/notify", notificationRoutes);
 
-const PORT = 8030;
+const PORT = process.env.NOTIFY_PORT || 8030;
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
