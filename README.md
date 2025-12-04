@@ -15,7 +15,7 @@ npm run dev
 node index.js
 ```
 
-The service will start on `http://localhost:8030` by default.
+The service will start on `http://localhost:3005` by default.
 
 ## Setup Requirements
 
@@ -87,7 +87,7 @@ The Notification service will consume messages from this queue and handle them a
 
 ```javascript
 const response = await fetch(
-  `http://localhost:8030/notify/notifications/${userId}`
+  `http://localhost:3005/notify/notifications/${userId}`
 );
 
 const data = await response.json();

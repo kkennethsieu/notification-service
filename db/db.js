@@ -14,7 +14,7 @@ try {
             type TEXT NOT NULL, -- 'review','comment','follow'
             message TEXT NOT NULL,
             isRead BOOLEAN DEFAULT 0,
-            createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
+            createdAt TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
           )
         `
   ).run();
