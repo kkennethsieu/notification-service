@@ -1,7 +1,13 @@
 import Database from "better-sqlite3";
 
-const db = new Database("./db/notification.db");
+let db;
+
 try {
+  if (process.env.NODE_ENV === "test") {
+    db = new Database(":memory:"); // in-memory DB for tests
+  } else {
+    db = new Database("./src/db/notification.db");
+  }
   // Likes/Dislikes table
   db.prepare(
     `
